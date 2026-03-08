@@ -150,32 +150,3 @@
   0%, 100% { opacity: 0.5; }
   50%      { opacity: 1; }
 }
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(129,140,248,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(52,211,153,0.04) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.gemini-statusbar {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(90deg, rgba(129,140,248,0.15), rgba(52,211,153,0.1));
-  border-top: 1px solid rgba(129,140,248,0.2);
-  padding: 0 1rem;
-  font-size: 0.65rem;
-  color: rgba(226,232,240,0.5);
-  z-index: 50;
-}
-
-.gemini-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #34d399;
-  box-shadow: 0 0 6px #34d399;
-  animation: blink 2s ease-in-out infinite;
-}

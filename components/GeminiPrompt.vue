@@ -42,45 +42,40 @@ defineProps({
 .gemini-exchange { 
   display: flex; 
   flex-direction: column; 
-  gap: 1rem; 
-  margin: 1rem 0;
+  gap: 0.8rem; 
+  margin: 1.1rem 0 0.6rem;
+  border-top: 1px solid rgba(129, 140, 248, 0.18);
+  padding-top: 0.9rem;
 }
 
 .gemini-prompt-wrap {
-  background: rgba(129,140,248,0.08);
-  border: 1px solid rgba(129,140,248,0.25);
-  border-radius: 6px;
-  padding: 0.8rem 1rem;
-  transition: all 0.2s ease;
-}
-
-.gemini-prompt-wrap:hover {
-  background: rgba(129,140,248,0.12);
-  border-color: rgba(129,140,248,0.35);
+  background: rgba(24, 31, 48, 0.72);
+  border: 1px solid rgba(129, 140, 248, 0.24);
+  border-radius: 0;
+  padding: 0.6rem 0.75rem;
 }
 
 .gemini-prompt-prefix {
-  color: #818cf8;
+  color: #a5b4fc;
   font-weight: 700;
-  margin-right: 0.6em;
-  text-shadow: 0 0 10px rgba(129,140,248,0.9);
-  font-size: 1.1em;
+  margin-right: 0.5em;
+  font-size: 1em;
+  text-shadow: none;
 }
 
 .gemini-prompt-text { 
-  color: #e2e8f0; 
-  font-size: 0.95rem; 
-  line-height: 1.5;
+  color: #cfd6ea; 
+  font-size: 0.9rem; 
+  line-height: 1.45;
 }
 
 .gemini-thinking {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #818cf8;
-  font-size: 0.85rem;
-  font-style: italic;
-  padding: 0.5rem 0;
+  gap: 0.4rem;
+  color: #a5b4fc;
+  font-size: 0.78rem;
+  padding: 0.2rem 0;
 }
 
 .gemini-thinking-dots {
@@ -92,7 +87,7 @@ defineProps({
   display: inline-block;
   width: 5px; 
   height: 5px;
-  background: #818cf8;
+  background: #a5b4fc;
   border-radius: 50%;
   animation: gemini-pulse 1.4s ease-in-out infinite;
 }
@@ -106,72 +101,62 @@ defineProps({
 }
 
 .gemini-response {
-  padding: 1rem 1.2rem;
-  border-left: 3px solid #34d399;
-  background: linear-gradient(
-    to right, 
-    rgba(52,211,153,0.06) 0%, 
-    rgba(52,211,153,0.02) 100%
-  );
-  border-radius: 0 4px 4px 0;
+  padding: 0.75rem 0.85rem;
+  border-left: 2px solid rgba(16, 185, 129, 0.75);
+  background: rgba(5, 18, 14, 0.42);
+  border-radius: 0;
 }
 
 .gemini-response-prefix {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #34d399;
   font-weight: 700;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.45rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-shadow: 0 0 8px rgba(52,211,153,0.5);
+  letter-spacing: 0.06em;
+  text-shadow: none;
 }
 
 .gemini-response-content {
-  color: #e2e8f0;
-  line-height: 1.6;
+  color: #c9d2e5;
+  line-height: 1.5;
 }
 
 .gemini-response-content p {
-  margin: 0.5rem 0;
+  margin: 0.35rem 0;
 }
 
 .gemini-response-content code {
-  background: rgba(129,140,248,0.15);
+  background: rgba(129,140,248,0.18);
   padding: 0.15em 0.4em;
-  border-radius: 3px;
+  border-radius: 0;
   font-size: 0.9em;
-  color: #818cf8;
+  color: #c7d2fe;
 }
 
 .gemini-tool {
-  background: linear-gradient(
-    135deg,
-    rgba(96,165,250,0.08) 0%,
-    rgba(96,165,250,0.04) 100%
-  );
-  border: 1px solid rgba(96,165,250,0.3);
-  border-radius: 6px;
-  padding: 0.7rem 0.9rem;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
+  background: rgba(12, 24, 40, 0.6);
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  border-radius: 0;
+  padding: 0.55rem 0.75rem;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
 }
 
 .gemini-tool-name {
   color: #60a5fa;
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.67rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
-  text-shadow: 0 0 8px rgba(96,165,250,0.5);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+  text-shadow: none;
 }
 
 .gemini-tool-content {
-  color: rgba(226,232,240,0.8);
-  font-size: 0.85rem;
+  color: rgba(226,232,240,0.78);
+  font-size: 0.8rem;
 }
-  letter-spacing: 0.08em;
-  margin-bottom: 0.2rem;
-}
+
 .gemini-tool-name::before { content: 'TOOL: '; }
 </style>
