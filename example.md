@@ -52,6 +52,20 @@ layout: vim
 > Press `:wq` to save and quit your presentation
 
 ---
+layout: nano
+---
+
+## GNU Nano Layout
+
+A lightweight text editor inspired theme:
+
+- Traditional nano top bar with file information
+- Clean content editing area
+- Help footer with keyboard shortcuts
+
+> Press `^X` to exit your presentation
+
+---
 layout: htop
 ---
 
