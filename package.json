@@ -1,0 +1,42 @@
+{
+  "name": "slidev-theme-tui",
+  "version": "0.1.0",
+  "description": "Terminal User Interface theme for Slidev - Inspired by vi, nano, emacs, htop, and Gemini CLI",
+  "keywords": [
+    "slidev-theme",
+    "terminal",
+    "tui",
+    "vim",
+    "htop",
+    "gemini",
+    "cli"
+  ],
+  "homepage": "https://github.com/riccardomerolla/slidev-theme-tui",
+  "bugs": {
+    "url": "https://github.com/riccardomerolla/slidev-theme-tui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riccardomerolla/slidev-theme-tui.git"
+  },
+  "license": "MIT",
+  "author": "Riccardo Merolla",
+  "main": "./package.json",
+  "scripts": {
+    "dev": "slidev example.md",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md"
+  },
+  "peerDependencies": {
+    "@slidev/cli": ">=0.50.0",
+    "@slidev/types": ">=0.50.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^0.50.0",
+    "@slidev/types": "^0.50.0"
+  },
+  "slidev": {
+    "colorSchema": "dark",
+    "highlighter": "shiki"
+  }
+}

@@ -1,0 +1,296 @@
+/* =============================================================
+   slidev-theme-tui — Base Styles
+   Terminal / TUI aesthetic inspired by vi, nano, emacs, htop
+   ============================================================= */
+
+/* Google Fonts: monospace stacks */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Fira+Code:wght@300;400;500;700&display=swap');
+
+/* ── CSS Custom Properties ── */
+:root {
+  /* Phosphor Green (default) */
+  --tui-bg:          #0d1117;
+  --tui-bg-alt:      #161b22;
+  --tui-bg-overlay:  #1e2530;
+  --tui-fg:          #33ff66;
+  --tui-fg-dim:      #1a8a35;
+  --tui-fg-muted:    #0d4a1e;
+  --tui-accent:      #00ff99;
+  --tui-warn:        #ffb700;
+  --tui-error:       #ff3333;
+  --tui-info:        #66ccff;
+  --tui-purple:      #bf5af2;
+  --tui-cyan:        #5ac8fa;
+  --tui-border:      #1f4a2e;
+  --tui-selection:   #004d1a;
+  --tui-cursor:      #33ff66;
+  --tui-font:        'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --tui-glow:        0 0 8px rgba(51, 255, 102, 0.6);
+  --tui-glow-strong: 0 0 16px rgba(51, 255, 102, 0.9), 0 0 32px rgba(51, 255, 102, 0.4);
+}
+
+/* ── Global Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.slidev-layout {
+  font-family: var(--tui-font);
+  background-color: var(--tui-bg);
+  color: var(--tui-fg);
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── CRT Scanlines overlay ── */
+.slidev-layout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+  animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* ── Phosphor Glow on Text ── */
+h1, h2, h3 {
+  font-family: var(--tui-font);
+  font-weight: 700;
+  color: var(--tui-accent);
+  text-shadow: var(--tui-glow);
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+
+p, li {
+  color: var(--tui-fg);
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--tui-info);
+  text-decoration: underline dotted;
+  text-shadow: 0 0 6px rgba(102, 204, 255, 0.5);
+}
+
+/* ── Code Blocks ── */
+code, kbd {
+  font-family: var(--tui-font);
+  background: var(--tui-bg-alt);
+  color: var(--tui-accent);
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+  border: 1px solid var(--tui-border);
+  font-size: 0.88em;
+  text-shadow: var(--tui-glow);
+}
+
+pre {
+  background: var(--tui-bg-alt);
+  border: 1px solid var(--tui-border);
+  border-left: 3px solid var(--tui-fg);
+  padding: 1em 1.2em;
+  border-radius: 2px;
+  overflow-x: auto;
+  position: relative;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+pre::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 0.65rem;
+  color: var(--tui-fg-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Box Drawing Border Utility ── */
+.tui-box {
+  border: 1px solid var(--tui-border);
+  box-shadow: 0 0 12px rgba(51,255,102,0.1), inset 0 0 12px rgba(0,0,0,0.3);
+  padding: 1rem;
+  position: relative;
+}
+
+.tui-box-title {
+  position: absolute;
+  top: -0.6em;
+  left: 1em;
+  background: var(--tui-bg);
+  padding: 0 0.5em;
+  font-size: 0.75rem;
+  color: var(--tui-warn);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Cursor Blink ── */
+.tui-cursor::after {
+  content: '█';
+  animation: blink 1.2s step-start infinite;
+  color: var(--tui-cursor);
+  text-shadow: var(--tui-glow);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Status Bar (vi/nano style) ── */
+.tui-statusbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--tui-fg);
+  color: var(--tui-bg);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0 0.8em;
+  z-index: 50;
+  font-family: var(--tui-font);
+}
+
+.tui-statusbar .left  { display: flex; gap: 1em; }
+.tui-statusbar .right { display: flex; gap: 1em; }
+
+/* ── Top Bar ── */
+.tui-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--tui-bg-alt);
+  border-bottom: 1px solid var(--tui-border);
+  font-size: 0.75rem;
+  padding: 0 0.8em;
+  color: var(--tui-fg-dim);
+  z-index: 50;
+  font-family: var(--tui-font);
+}
+
+/* ── Slide content area ── */
+.tui-content {
+  padding: 2.5rem 3rem 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── Lists ── */
+ul, ol {
+  padding-left: 1.5em;
+}
+
+ul li::marker { content: '▸ '; color: var(--tui-accent); }
+ol li::marker { color: var(--tui-warn); }
+
+/* ── Blockquote ── */
+blockquote {
+  border-left: 3px solid var(--tui-warn);
+  margin: 0.5em 0;
+  padding: 0.4em 1em;
+  background: var(--tui-bg-alt);
+  color: var(--tui-warn);
+  font-style: italic;
+}
+
+/* ── Table ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88rem;
+}
+
+th {
+  background: var(--tui-fg);
+  color: var(--tui-bg);
+  padding: 0.3em 0.8em;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid var(--tui-border);
+  padding: 0.3em 0.8em;
+  color: var(--tui-fg);
+}
+
+tr:hover td { background: var(--tui-bg-alt); }
+
+/* ── Badge / Tag ── */
+.tui-badge {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  background: var(--tui-bg-alt);
+  border: 1px solid var(--tui-fg);
+  font-size: 0.7rem;
+  color: var(--tui-fg);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: var(--tui-glow);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--tui-bg); }
+::-webkit-scrollbar-thumb { background: var(--tui-fg-dim); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--tui-fg); }
+
+/* ── Selection ── */
+::selection {
+  background: var(--tui-selection);
+  color: var(--tui-accent);
+}
+
+/* ── Animations ── */
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tui-animate-in {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.tui-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--tui-cursor);
+  animation: typewriter 1.5s steps(40) 0.5s forwards,
+             blink 0.8s step-end infinite;
+}
