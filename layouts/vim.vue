@@ -32,68 +32,106 @@
 </template>
 
 <style scoped>
-.vim { display: flex; flex-direction: column; }
+.vim { 
+  display: flex; 
+  flex-direction: column; 
+}
+
 .vim-tabline {
   display: flex;
   background: var(--tui-bg-alt);
   border-bottom: 1px solid var(--tui-border);
   font-size: 0.75rem;
 }
+
 .vim-tab {
-  padding: 0.2em 1em;
+  padding: 0.3em 1.2em;
   color: var(--tui-fg-dim);
   border-right: 1px solid var(--tui-border);
   cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
 }
+
+.vim-tab:hover {
+  color: var(--tui-fg);
+  background: rgba(51,255,102,0.05);
+}
+
 .vim-tab.active {
   background: var(--tui-bg);
   color: var(--tui-fg);
   border-bottom: 2px solid var(--tui-accent);
+  box-shadow: 0 0 8px rgba(51,255,102,0.2);
 }
+
 .vim-editor {
   display: flex;
   flex: 1;
   overflow: hidden;
 }
+
 .vim-gutter {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0.5rem;
-  background: var(--tui-bg);
-  border-right: 1px solid var(--tui-border);
-  min-width: 2.5rem;
+  padding: 0.8rem 0.6rem;
+  background: var(--tui-bg-alt);
+  border-right: 2px solid var(--tui-border);
+  min-width: 3rem;
   text-align: right;
+  user-select: none;
 }
+
 .vim-lnum {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--tui-fg-muted);
   line-height: 1.6;
+  transition: color 0.2s ease;
 }
+
+.vim-lnum:hover {
+  color: var(--tui-fg-dim);
+}
+
 .vim-content {
   flex: 1;
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2rem;
   overflow-y: auto;
+  line-height: 1.6;
 }
+
 .vim-statusline {
   display: flex;
   align-items: center;
   gap: 1rem;
-  height: 1.4rem;
+  height: 1.6rem;
   background: var(--tui-fg);
   color: var(--tui-bg);
-  padding: 0 0.5rem;
-  font-size: 0.72rem;
+  padding: 0 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.vim-mode { 
+  background: var(--tui-bg); 
+  color: var(--tui-accent); 
+  padding: 0.15em 0.5em; 
+  text-shadow: none;
+  border-radius: 2px;
   font-weight: 700;
 }
-.vim-mode { background: var(--tui-bg); color: var(--tui-accent); padding: 0 0.4em; text-shadow: none; }
+
 .vim-spacer { flex: 1; }
+
 .vim-cmdline {
-  height: 1.3rem;
+  height: 1.4rem;
   background: var(--tui-bg);
-  padding: 0 0.5rem;
-  font-size: 0.75rem;
+  padding: 0 0.8rem;
+  font-size: 0.78rem;
   color: var(--tui-fg);
   display: flex;
   align-items: center;
+  border-top: 1px solid var(--tui-border);
 }
 </style>

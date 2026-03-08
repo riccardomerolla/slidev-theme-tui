@@ -100,6 +100,16 @@
     rgba(0,0,0,0.12) 4px
   );
   pointer-events: none;
+  z-index: 3;
+  animation: scanlines-move 8s linear infinite;
+}
+
+@keyframes scanlines-move {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+  );
+  pointer-events: none;
   z-index: 10;
   animation: scan-move 8s linear infinite;
 }

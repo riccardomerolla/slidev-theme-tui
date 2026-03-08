@@ -1,6 +1,8 @@
 <template>
   <div class="slidev-layout gemini layout-gemini">
     <div class="gemini-bg-gradient"></div>
+    <div class="bg-scanlines"></div>
+    <div class="bg-vignette"></div>
     <!-- Header -->
     <div class="gemini-header">
       <span class="gemini-logo">&#9670; Gemini CLI</span>
@@ -30,10 +32,11 @@
   flex-direction: column;
   background: #0a0d16;
   color: #e2e8f0;
+  position: relative;
 }
 .gemini-body {
   flex: 1;
-  padding: 1.5rem 2rem;
+  padding: 2.5rem 3rem;
   overflow-y: auto;
   position: relative;
   z-index: 1;

@@ -51,56 +51,136 @@
 </template>
 
 <style scoped>
-.htop { display: flex; flex-direction: column; }
+.htop { 
+  display: flex; 
+  flex-direction: column; 
+}
+
 .htop-header {
   display: flex;
   justify-content: space-between;
-  padding: 0.4rem 1rem;
+  padding: 0.6rem 1.2rem;
   background: var(--tui-bg);
-  border-bottom: 1px solid var(--tui-border);
-  font-size: 0.72rem;
+  border-bottom: 2px solid var(--tui-border);
+  font-size: 0.75rem;
 }
-.htop-cpu-bars { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
-.htop-cpu { display: flex; align-items: center; gap: 0.4rem; }
-.htop-label { width: 3.5rem; color: var(--tui-fg); }
+
+.htop-cpu-bars { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.3rem; 
+  flex: 1; 
+}
+
+.htop-cpu { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.6rem; 
+}
+
+.htop-label { 
+  width: 4rem; 
+  color: var(--tui-fg); 
+  font-weight: 600;
+}
+
 .htop-bar {
-  flex: 1; max-width: 200px;
-  height: 10px;
+  flex: 1; 
+  max-width: 220px;
+  height: 12px;
   background: var(--tui-bg-alt);
   border: 1px solid var(--tui-border);
+  position: relative;
+  overflow: hidden;
 }
-.htop-fill { height: 100%; background: var(--tui-accent); }
-.htop-fill.mem { background: var(--tui-info); }
-.htop-val { width: 5rem; color: var(--tui-fg-dim); text-align: right; }
-.htop-stats { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.72rem; }
-.htop-stats .hl { color: var(--tui-accent); }
+
+.htop-fill { 
+  height: 100%; 
+  background: linear-gradient(90deg, var(--tui-accent), rgba(51,255,102,0.7));
+  box-shadow: 0 0 8px rgba(51,255,102,0.4);
+  transition: width 0.3s ease;
+}
+
+.htop-fill.mem { 
+  background: linear-gradient(90deg, var(--tui-info), rgba(102,204,255,0.7));
+  box-shadow: 0 0 8px rgba(102,204,255,0.4);
+}
+
+.htop-val { 
+  width: 5.5rem; 
+  color: var(--tui-fg); 
+  text-align: right; 
+  font-weight: 500;
+}
+
+.htop-stats { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.3rem; 
+  font-size: 0.75rem; 
+  padding-left: 1.5rem;
+}
+
+.htop-stats .hl { 
+  color: var(--tui-accent); 
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(51,255,102,0.4);
+}
+
 .htop-table-header {
   display: flex;
   gap: 1rem;
-  padding: 0.2rem 1rem;
+  padding: 0.3rem 1.2rem;
   background: var(--tui-accent);
   color: var(--tui-bg);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
+  text-shadow: none;
+  letter-spacing: 0.02em;
 }
+
 .col-pid  { width: 4rem; }
 .col-user { width: 6rem; }
 .col-cpu  { width: 4rem; }
 .col-mem  { width: 4rem; }
 .col-cmd  { flex: 1; }
-.htop-content { flex: 1; padding: 0.5rem 1rem; overflow-y: auto; font-size: 0.8rem; }
+
+.htop-content { 
+  flex: 1; 
+  padding: 0.8rem 1.2rem; 
+  overflow-y: auto; 
+  font-size: 0.82rem; 
+}
+
 .htop-footer {
   display: flex;
+  gap: 0.3rem;
   background: var(--tui-bg-alt);
   border-top: 1px solid var(--tui-border);
   font-size: 0.7rem;
+  padding: 0.3rem 0.5rem;
 }
-.htop-fn { display: flex; align-items: center; }
+
+.htop-fn { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.2rem;
+  padding: 0.1rem 0.4rem;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.htop-fn:hover {
+  background: rgba(51,255,102,0.1);
+}
+
 .fn-key {
   background: var(--tui-fg);
   color: var(--tui-bg);
-  padding: 0.1em 0.3em;
-  margin-right: 0.2em;
+  padding: 0.15em 0.4em;
+  margin-right: 0.3em;
   font-weight: 700;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 </style>

@@ -294,3 +294,213 @@ tr:hover td { background: var(--tui-bg-alt); }
   animation: typewriter 1.5s steps(40) 0.5s forwards,
              blink 0.8s step-end infinite;
 }
+
+/* ── Additional Enhancements ── */
+/* Better focus indicators */
+:focus-visible {
+  outline: 2px solid var(--tui-accent);
+  outline-offset: 2px;
+}
+
+/* Improved transitions */
+a, button, .tui-badge {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--tui-cyan);
+  text-shadow: 0 0 10px rgba(90, 200, 250, 0.8);
+}
+
+/* Enhanced pre/code blocks */
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Syntax highlighting enhancements */
+.shiki {
+  background: var(--tui-bg-alt) !important;
+  border: 1px solid var(--tui-border);
+  border-left: 3px solid var(--tui-fg);
+  padding: 1em 1.2em;
+  border-radius: 2px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.shiki code {
+  font-family: var(--tui-font);
+  text-shadow: var(--tui-glow);
+}
+
+/* Terminal prompt styling */
+.language-bash::before,
+.language-shell::before,
+.language-sh::before {
+  content: '$';
+  position: absolute;
+  left: 0.5em;
+  color: var(--tui-accent);
+  font-weight: 700;
+}
+
+/* Improved kbd styling */
+kbd {
+  background: var(--tui-bg);
+  border: 1px solid var(--tui-fg);
+  border-bottom-width: 2px;
+  padding: 0.15em 0.5em;
+  font-size: 0.85em;
+  box-shadow: 0 2px 0 var(--tui-fg-dim);
+}
+
+/* Better hr styling */
+hr {
+  border: none;
+  border-top: 1px solid var(--tui-border);
+  margin: 1.5rem 0;
+}
+
+/* Improved figure and figcaption */
+figure {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border: 1px solid var(--tui-border);
+}
+
+figcaption {
+  font-size: 0.8rem;
+  color: var(--tui-fg-dim);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Strong/bold text with glow */
+strong, b {
+  font-weight: 700;
+  color: var(--tui-accent);
+  text-shadow: var(--tui-glow);
+}
+
+/* Emphasized text */
+em, i {
+  font-style: italic;
+  color: var(--tui-info);
+}
+
+/* Better underline */
+u {
+  text-decoration: underline;
+  text-decoration-color: var(--tui-warn);
+  text-decoration-thickness: 2px;
+}
+
+/* Mark/highlight */
+mark {
+  background: var(--tui-warn);
+  color: var(--tui-bg);
+  padding: 0.1em 0.3em;
+}
+
+/* Deleted text */
+del {
+  color: var(--tui-error);
+  text-decoration: line-through;
+}
+
+/* Details/Summary */
+details {
+  border: 1px solid var(--tui-border);
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--tui-accent);
+  user-select: none;
+}
+
+summary:hover {
+  color: var(--tui-cyan);
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--tui-border);
+  box-shadow: 0 0 10px rgba(51,255,102,0.1);
+}
+
+/* Definition lists */
+dt {
+  font-weight: 700;
+  color: var(--tui-accent);
+  margin-top: 0.5rem;
+}
+
+dd {
+  margin-left: 1.5rem;
+  color: var(--tui-fg);
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 768px) {
+  .slidev-layout {
+    font-size: 0.9rem;
+  }
+  
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1rem; }
+  
+  .tui-content {
+    padding: 2rem !important;
+  }
+  
+  .tui-statusbar,
+  .tui-topbar {
+    font-size: 0.65rem;
+    padding: 0 0.5rem;
+  }
+  
+  pre {
+    padding: 0.8em;
+    font-size: 0.75rem;
+  }
+}
+
+/* ── Animation performance ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .slidev-layout::before {
+    animation: none;
+  }
+}
+
+/* ── Print styles ── */
+@media print {
+  .slidev-layout::before,
+  .bg-scanlines,
+  .bg-vignette,
+  .bg-noise,
+  .bg-matrix {
+    display: none;
+  }
+  
+  .slidev-layout {
+    background: white;
+    color: black;
+  }
+}
