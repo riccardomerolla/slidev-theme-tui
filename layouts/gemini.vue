@@ -36,7 +36,7 @@
 }
 .gemini-body {
   flex: 1;
-  padding: 2.5rem 3rem;
+  padding: 2.5rem 3rem 3.5rem 3rem;
   overflow-y: auto;
   position: relative;
   z-index: 1;

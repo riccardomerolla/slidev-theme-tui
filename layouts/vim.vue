@@ -24,10 +24,6 @@
       <span class="vim-pos">{{ $slidev.nav.currentPage }}:1</span>
       <span class="vim-pct">{{ Math.round($slidev.nav.currentPage/$slidev.nav.total*100) }}%</span>
     </div>
-    <!-- Vim command line -->
-    <div class="vim-cmdline">
-      <span class="vim-cmd-cursor">&#8203;</span>
-    </div>
   </div>
 </template>
 
@@ -95,43 +91,44 @@
 
 .vim-content {
   flex: 1;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 3rem 2rem;
   overflow-y: auto;
   line-height: 1.6;
 }
 
 .vim-statusline {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
-  height: 1.6rem;
-  background: var(--tui-fg);
+  height: 2rem;
+  background: linear-gradient(180deg, var(--tui-fg) 0%, rgba(51,255,102,0.95) 100%);
   color: var(--tui-bg);
-  padding: 0 0.8rem;
-  font-size: 0.75rem;
+  padding: 0 1.2rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  border-top: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 -2px 10px rgba(51,255,102,0.3);
+  z-index: 9999;
 }
 
 .vim-mode { 
   background: var(--tui-bg); 
   color: var(--tui-accent); 
-  padding: 0.15em 0.5em; 
+  padding: 0.2em 0.7em; 
   text-shadow: none;
-  border-radius: 2px;
+  border-radius: 3px;
   font-weight: 700;
+  border: 1px solid rgba(51,255,102,0.3);
 }
 
 .vim-spacer { flex: 1; }
 
 .vim-cmdline {
-  height: 1.4rem;
-  background: var(--tui-bg);
-  padding: 0 0.8rem;
-  font-size: 0.78rem;
-  color: var(--tui-fg);
-  display: flex;
-  align-items: center;
-  border-top: 1px solid var(--tui-border);
+  display: none;
 }
 </style>

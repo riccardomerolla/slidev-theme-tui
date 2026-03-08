@@ -39,6 +39,10 @@
 
 <style scoped>
 .cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
 }
 
@@ -47,6 +51,7 @@
   z-index: 10;
   position: relative;
   max-width: 90%;
+  margin: 0 auto;
 }
 
 @keyframes fadeInUp {
@@ -143,10 +148,11 @@
 }
 
 .cover-statusbar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  width: 100%;
   height: 2rem;
   display: flex;
   align-items: center;
@@ -156,7 +162,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0 1.2rem;
-  z-index: 50;
+  z-index: 9999;
   font-family: var(--tui-font);
   border-top: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 -2px 10px rgba(51,255,102,0.3);

@@ -147,18 +147,26 @@
 
 .htop-content { 
   flex: 1; 
-  padding: 0.8rem 1.2rem; 
+  padding: 0.8rem 1.2rem 3rem 1.2rem; 
   overflow-y: auto; 
   font-size: 0.82rem; 
 }
 
 .htop-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   display: flex;
   gap: 0.3rem;
-  background: var(--tui-bg-alt);
-  border-top: 1px solid var(--tui-border);
-  font-size: 0.7rem;
-  padding: 0.3rem 0.5rem;
+  background: linear-gradient(180deg, var(--tui-fg) 0%, rgba(51,255,102,0.95) 100%);
+  color: var(--tui-bg);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 -2px 10px rgba(51,255,102,0.3);
+  font-size: 0.75rem;
+  padding: 0.4rem 1rem;
+  z-index: 9999;
 }
 
 .htop-fn { 
@@ -171,16 +179,17 @@
 }
 
 .htop-fn:hover {
-  background: rgba(51,255,102,0.1);
+  background: rgba(0,0,0,0.15);
 }
 
 .fn-key {
-  background: var(--tui-fg);
-  color: var(--tui-bg);
-  padding: 0.15em 0.4em;
+  background: var(--tui-bg);
+  color: var(--tui-accent);
+  padding: 0.15em 0.5em;
   margin-right: 0.3em;
   font-weight: 700;
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  border: 1px solid rgba(51,255,102,0.3);
 }
 </style>
