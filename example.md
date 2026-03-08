@@ -67,37 +67,14 @@ A lightweight text editor inspired theme:
 
 ---
 layout: htop
+htopTitle: Your custom htop title here
 ---
 
-### My Presentation Processes
-
-<div class="htop-row" style="display:flex; gap:1rem; font-size:0.75rem; padding: 0.2rem 0; border-bottom: 1px solid var(--tui-border);">
-  <span style="width:4rem;">1337</span>
-  <span style="width:6rem;">user</span>
-  <span style="width:4rem; color:var(--tui-accent);">45.2</span>
-  <span style="width:4rem;">2.1</span>
-  <span style="color: var(--tui-fg);">slidev --theme tui presentation.md</span>
-</div>
-<div class="htop-row" style="display:flex; gap:1rem; font-size:0.75rem; padding: 0.2rem 0; border-bottom: 1px solid var(--tui-border);">
-  <span style="width:4rem;">1338</span>
-  <span style="width:6rem;">user</span>
-  <span style="width:4rem; color:var(--tui-warn);">12.8</span>
-  <span style="width:4rem;">1.3</span>
-  <span style="color: var(--tui-fg);">node /usr/bin/vite --port 3030</span>
-</div>
-<div class="htop-row" style="display:flex; gap:1rem; font-size:0.75rem; padding: 0.2rem 0;">
-  <span style="width:4rem;">1339</span>
-  <span style="width:6rem;">user</span>
-  <span style="width:4rem;">2.4</span>
-  <span style="width:4rem;">0.8</span>
-  <span style="color: var(--tui-fg);">chromium --presentation-mode</span>
-</div>
+Your custom htop content here **Agent AI**
 
 ---
 layout: gemini
 ---
-
-## Gemini CLI Layout
 
 <GeminiPrompt prompt="Explain the TUI theme architecture for Slidev">
 
