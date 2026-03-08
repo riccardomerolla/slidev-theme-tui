@@ -30,10 +30,17 @@
 <style scoped>
 .vim { 
   display: flex; 
-  flex-direction: column; 
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: var(--tui-bg);
+  color: var(--tui-fg);
+  font-family: var(--tui-font);
 }
 
 .vim-tabline {
+  flex-shrink: 0;
   display: flex;
   background: var(--tui-bg-alt);
   border-bottom: 1px solid var(--tui-border);
@@ -64,44 +71,102 @@
 .vim-editor {
   display: flex;
   flex: 1;
+  min-height: 0;
   overflow: hidden;
 }
 
 .vim-gutter {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  padding: 0.8rem 0.6rem;
+  padding: 1rem 0.6rem;
   background: var(--tui-bg-alt);
   border-right: 2px solid var(--tui-border);
-  min-width: 3rem;
+  min-width: 3.5rem;
   text-align: right;
   user-select: none;
 }
 
 .vim-lnum {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--tui-fg-muted);
   line-height: 1.6;
   transition: color 0.2s ease;
+  font-weight: 500;
 }
 
 .vim-lnum:hover {
-  color: var(--tui-fg-dim);
+  color: var(--tui-accent);
+  text-shadow: 0 0 4px rgba(51,255,102,0.3);
 }
 
 .vim-content {
   flex: 1;
-  padding: 1rem 2rem 3rem 2rem;
+  min-height: 0;
+  padding: 1.5rem 2.5rem 2rem;
   overflow-y: auto;
   line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.vim-content :deep(h1),
+.vim-content :deep(h2),
+.vim-content :deep(h3) {
+  color: var(--tui-accent);
+  text-shadow: 0 0 10px rgba(51,255,102,0.3);
+  margin: 1.5rem 0 1rem 0;
+  font-weight: 700;
+}
+
+.vim-content :deep(h1) {
+  font-size: 1.8rem;
+}
+
+.vim-content :deep(h2) {
+  font-size: 1.4rem;
+}
+
+.vim-content :deep(h3) {
+  font-size: 1.1rem;
+}
+
+.vim-content :deep(p) {
+  margin: 0.8rem 0;
+  color: var(--tui-fg);
+  font-size: 0.95rem;
+}
+
+.vim-content :deep(code) {
+  background: rgba(0, 0, 0, 0.3);
+  color: #00ff99;
+  padding: 0.2em 0.4em;
+  border-radius: 2px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  border: 1px solid rgba(51,255,102,0.2);
+  text-shadow: 0 0 3px rgba(51,255,102,0.2);
+}
+
+.vim-content :deep(pre) {
+  background: rgba(0, 0, 0, 0.4);
+  color: #00ff99;
+  padding: 1rem;
+  border-left: 3px solid var(--tui-accent);
+  border-radius: 2px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 0 8px rgba(51,255,102,0.1);
+}
+
+.vim-content :deep(pre code) {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-shadow: none;
 }
 
 .vim-statusline {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -113,7 +178,7 @@
   font-weight: 700;
   border-top: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 -2px 10px rgba(51,255,102,0.3);
-  z-index: 9999;
+  z-index: 50;
 }
 
 .vim-mode { 
