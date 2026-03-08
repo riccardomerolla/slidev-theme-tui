@@ -66,13 +66,11 @@
 import { computed } from 'vue'
 import { useSlideContext } from '@slidev/client'
 
-const { $slidev } = useSlideContext()
+const { $frontmatter } = useSlideContext()
 
 const htopTitle = computed(() => {
-  const currentIndex = $slidev.nav.currentPage - 1
-  const currentSlide = $slidev.nav.slides?.[currentIndex]
-  const frontmatter = currentSlide?.frontmatter ?? {}
-  return frontmatter.htopTitle || frontmatter.title || 'Il Livello Successivo: Autonomia con Agent AI'
+  const fm = ($frontmatter && 'value' in $frontmatter) ? $frontmatter.value : $frontmatter
+  return fm?.htopTitle || fm?.title || 'Il Livello Successivo: Autonomia con Agent AI'
 })
 
 const meters = [
