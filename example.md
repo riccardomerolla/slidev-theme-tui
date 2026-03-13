@@ -87,6 +87,29 @@ The `slidev-theme-tui` is built with **three layers**:
 </GeminiPrompt>
 
 ---
+layout: borland
+windowTitle: MAIN.CPP
+---
+
+# Borland Turbo C++
+
+Turbo Vision inspired layout for nostalgic programmers.
+
+- **Double-line borders** for that classic DOS feel.
+- **Top menu bar** with shortcut highlights.
+- **Bottom status bar** with keyboard shortcuts.
+- **Classic Blue** background palette.
+
+```cpp
+#include <iostream.h>
+
+int main() {
+    cout << "Hello, Turbo C++!" << endl;
+    return 0;
+}
+```
+
+---
 layout: default
 ---
 
